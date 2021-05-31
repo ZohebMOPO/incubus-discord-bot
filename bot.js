@@ -2,7 +2,6 @@
 
 const Discord = require("discord.js");
 const { Client, MessageAttachment, MessageEmbed } = require("discord.js");
-const live = require("./server");
 const client = new Discord.Client();
 
 require("dotenv").config();
@@ -41,5 +40,4 @@ client.on("message", (message) => {
   }
 });
 
-live();
 client.login(process.env.TOKEN);
