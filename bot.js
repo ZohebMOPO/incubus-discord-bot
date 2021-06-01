@@ -45,6 +45,50 @@ client.on("message", (message) => {
       .setImage("https://i.postimg.cc/RF5vTLp7/fsf.jpg");
     message.channel.send(ad);
   }
+  if (!message.guild) return;
+  if (message.content.startsWith(!kick)) {
+    const user = message.mentions.users.first();
+    if (user) {
+      const member = message.guild.member(user);
+      if (member) {
+        member
+          .kick("Optional reason that will display in the audit logs")
+          .then(() => {
+            message.reply(`Succesfully kicked ${user.tag}`);
+          })
+          .catch((err) => {
+            message.reply("I was unable to kick the member");
+            console.error(err.message);
+          });
+      } else {
+        message.reply("That user isn't in this guild!");
+      }
+    } else {
+      message.reply("You didn't mention the user to kick!");
+    }
+  }
+  if (message.content.startsWith("!ban")) {
+    const user = message.mentions.users.first();
+    if (user) {
+      const member = message.guild.member(user);
+      if (member) {
+        member
+          .ban({
+            reason: "They were asshole!",
+          })
+          .then(() => {
+            message.reply(`Succesfully banned the asshole ${user.tag}`);
+          })
+          .catch((err) => {
+            message.reply("I was unable to ban the asshole");
+          });
+      } else {
+        message.reply("That asshole isn't in this guild");
+      }
+    } else {
+      message.reply("You didn't mention the asshole to ban!");
+    }
+  }
 });
 
 client.login(process.env.TOKEN);
