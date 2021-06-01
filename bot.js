@@ -46,7 +46,7 @@ client.on("message", (message) => {
     message.channel.send(ad);
   }
   if (!message.guild) return;
-  if (message.content.startsWith(!kick)) {
+  if (message.content.startsWith("!kick")) {
     const user = message.mentions.users.first();
     if (user) {
       const member = message.guild.member(user);
