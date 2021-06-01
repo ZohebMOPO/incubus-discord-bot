@@ -38,6 +38,13 @@ client.on("message", (message) => {
       .setImage("https://i.postimg.cc/cL59DTWz/heu.jpg");
     message.channel.send(ayush);
   }
+  if (message.content === "!BaeSuzy") {
+    const ad = new MessageEmbed()
+      .setTitle("Bae Suzy SIMP")
+      .setColor(0xff0000)
+      .setImage("https://i.postimg.cc/RF5vTLp7/fsf.jpg");
+    message.channel.send(ad);
+  }
 });
 
 client.login(process.env.TOKEN);
